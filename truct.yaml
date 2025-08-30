@@ -1,0 +1,48 @@
+project:
+    name: ujsx
+    version: 1.0.0
+    description: Micro JSX Library
+    source: https://github.com/neotesk/ujsx
+    author: Neotesk
+    license: WTFPL
+
+var:
+    ujsx_build_args: --define:global=window
+                     --bundle
+                     --minify
+                     --sourcemap
+                     --target=es2017
+                     --outfile=ujsx.js
+                     src/index.js
+
+.setup:
+    description: Creates package.json file
+    actions:
+        -
+            action: touch
+            destination: package.json
+            content: |
+                {
+                    "name": "{{project.name}}",
+                    "version": "{{project.version}}",
+                    "description": "{{project.description}}",
+                    "homepage": "{{project.source}}#readme",
+                    "bugs": {
+                        "url": "{{project.source}}/issues"
+                    },
+                    "repository": {
+                        "type": "git",
+                        "url": "git+{{project.source}}.git"
+                    },
+                    "license": "{{project.license}}",
+                    "type": "commonjs",
+                    "main": "ujsx.js"
+                }
+
+.build:
+    description: Builds uJSX
+    actions:
+        -
+            action: shell
+            cmdlines:
+                - esbuild {{var.ujsx_build_args}}

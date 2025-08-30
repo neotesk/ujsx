@@ -1,0 +1,16 @@
+{
+    "name": "ujsx",
+    "version": "1.0.0",
+    "description": "Micro JSX Library",
+    "homepage": "https://github.com/neotesk/ujsx#readme",
+    "bugs": {
+        "url": "https://github.com/neotesk/ujsx/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/neotesk/ujsx.git"
+    },
+    "license": "WTFPL",
+    "type": "commonjs",
+    "main": "ujsx.js"
+}
