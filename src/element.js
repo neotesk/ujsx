@@ -16,6 +16,10 @@ export default {
         // Create the element first.
         let el = typeof type === 'function' ? type( { attributes: props, children } ) : document.createElement( type );
 
+        // Is this a fragment? if so return it.
+        if ( Array.isArray( el ) )
+            return el;
+
         // Then we will check if class, classList or className exists.
         const classes = new Set();
         if ( props?.class ) {
