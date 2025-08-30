@@ -36,6 +36,7 @@ export default {
         // handling system.
         if ( props?.styleRule ) {
             el.classList.add( props.styleRule.className );
+            delete props.styleRule;
         }
 
         // Now we need to check if the given type was a

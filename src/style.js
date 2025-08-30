@@ -43,7 +43,7 @@ export class StyleRule extends CSSOM.CSSStyleDeclaration {
             PlatformData.IsCapableOf( 'adoptable-stylesheet' )
         ) {
             const sty = new CSSStyleSheet();
-            sty.replaceSync( this.compiled );
+            sty.replaceSync( compiled );
             let idx = document.adoptedStyleSheets.push( sty );
             if ( StyleRule.compiled )
                 delete document.adoptedStyleSheets[ StyleRule.compiled ];
@@ -55,7 +55,7 @@ export class StyleRule extends CSSOM.CSSStyleDeclaration {
                 StyleRule.compiled.setAttribute( 'blocking', true );
                 document.head.appendChild( StyleRule.compiled );
             }
-            StyleRule.compiled.innerHTML = this.compiled;
+            StyleRule.compiled.innerHTML = compiled;
         }
 		return compiled;
     }
