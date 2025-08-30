@@ -64,7 +64,12 @@ export default {
                     el.appendChild( document.createTextNode( item ) );
                 else if ( Array.isArray( item ) )
                     // Good way to handle Fragments too btw.
-                    item.forEach( e => el.appendChild( e ) );
+                    item.forEach( e => {
+                        if ( typeof e !== "object" )
+                            el.appendChild( document.createTextNode( e ) )
+                        else
+                            el.appendChild( e )
+                    } );
                 else
                     // It's probably a valid HTML Element
                     el.appendChild( item );
