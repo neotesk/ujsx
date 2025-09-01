@@ -57,6 +57,18 @@ export default {
             if ( props ) for ( const [ key, value ] of Object.entries( props ) )
                 el.setAttribute( key, value );
 
+            // Implement a minimal recursive fragment handler
+            function handleFragment ( item ) {
+                item.forEach( e => {
+                    if ( typeof e !== "object" )
+                        el.appendChild( document.createTextNode( e ) )
+                    if ( Array.isArray( e ) )
+                        handleFragment( e )
+                    else
+                        el.appendChild( e )
+                } );
+            }
+
             // Now we will add the children.
             for ( const item of children ) {
                 if ( typeof item === 'string' )
@@ -64,12 +76,7 @@ export default {
                     el.appendChild( document.createTextNode( item ) );
                 else if ( Array.isArray( item ) )
                     // Good way to handle Fragments too btw.
-                    item.forEach( e => {
-                        if ( typeof e !== "object" )
-                            el.appendChild( document.createTextNode( e ) )
-                        else
-                            el.appendChild( e )
-                    } );
+                    handleFragment( item );
                 else
                     // It's probably a valid HTML Element
                     el.appendChild( item );
