@@ -20,6 +20,10 @@ export default {
         if ( Array.isArray( el ) )
             return el;
 
+        // If the value is null, skip the construction
+        if ( el !== 0 && !el )
+            return null;
+
         // Then we will check if class, classList or className exists.
         const classes = new Set();
         if ( props?.class ) {
@@ -59,10 +63,10 @@ export default {
 
             // Now we will add the children.
             for ( const item of children.flat( 1024 ) ) {
-                if ( typeof item === 'string' )
+                if ( [ 'string', 'number' ].includes( typeof item ) )
                     // Create a text node and ship it.
                     el.appendChild( document.createTextNode( item ) );
-                else
+                else if ( el )
                     // It's probably a valid HTML Element
                     el.appendChild( item );
             }
