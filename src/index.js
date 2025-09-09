@@ -12,6 +12,7 @@
 */
 
 import element from "./element";
+import CSSOM from "./cssom";
 import { StyleRule, MediaDefinition, MediaStyleRule, AddDefinition } from "./style";
 
 export const createElement = element.createElement
@@ -30,7 +31,8 @@ export {
     StyleRule,
     MediaDefinition,
     MediaStyleRule,
-    AddDefinition
+    AddDefinition,
+    CSSOM
 }
 
 export default {
@@ -47,5 +49,6 @@ export default {
     StyleRule,
     MediaDefinition,
     MediaStyleRule,
-    AddDefinition
+    AddDefinition,
+    CSSOM
 }
