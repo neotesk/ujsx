@@ -59,7 +59,7 @@ export default {
 
             // Now the other attributes.
             if ( props ) for ( const [ key, value ] of Object.entries( props ) )
-                el.setAttribute( key, value );
+                if ( value ) el.setAttribute( key, value );
 
             // Now we will add the children.
             for ( const item of children.flat( 1024 ) ) {
