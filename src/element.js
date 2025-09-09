@@ -38,7 +38,7 @@ export default {
             props.classList.forEach( e => classes.add( e ) );
             delete props.classList;
         }
-        el.classList.add( ...classes );
+        if ( classes.size !== 0 ) el.classList.add( ...classes );
 
         // Now for the styleRule, our custom style
         // handling system.
