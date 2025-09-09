@@ -17,6 +17,11 @@ import { sign } from "./util";
 
 const globalDefinitions = [];
 
+// This exists to add custom definitions globally
+export function AddDefinition ( def ) {
+    globalDefinitions.push( def );
+}
+
 export class StyleRule extends CSSOM.CSSStyleDeclaration {
     constructor ( text = undefined, selector = undefined ) {
         super();
