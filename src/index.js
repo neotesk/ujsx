@@ -12,7 +12,7 @@
 */
 
 import element from "./element";
-import { StyleRule, MediaDefinition, MediaStyleRule } from "./style";
+import { StyleRule, MediaDefinition, MediaStyleRule, AddDefinition } from "./style";
 
 export const createElement = element.createElement
 export const Fragment = element.Fragment
@@ -29,7 +29,8 @@ export const Points = p => `${ p }pt`;
 export {
     StyleRule,
     MediaDefinition,
-    MediaStyleRule
+    MediaStyleRule,
+    AddDefinition
 }
 
 export default {
@@ -45,5 +46,6 @@ export default {
     Points,
     StyleRule,
     MediaDefinition,
-    MediaStyleRule
+    MediaStyleRule,
+    AddDefinition
 }
